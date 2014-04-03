@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+
+<?php
+
+// Example of calling this: app/console export:accounting --start 2013-02-12 --end 2013-02-01 
+// Input - http://api.symfony.com/2.0/Symfony/Component/Console/Input.html
+// Output - http://api.symfony.com/2.0/Symfony/Component/Console/Output/Output.html
+
+// set to run indefinitely if needed
+set_time_limit(0);
+
+/* Optional. It’s better to do it in the php.ini file */
+date_default_timezone_set('Europe/London'); 
+
+// include the composer autoloader
+require_once __DIR__ . '/../vendor/autoload.php'; 
+
+// import the Symfony Console Application 
+use PhpMaster\Commands\FibonacciCommand;
+use Symfony\Component\Console\Application; 
+
+$app = new Application();
+$app->add(new FibonacciCommand());
+$app->run();
+
+?>

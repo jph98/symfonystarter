@@ -1,0 +1,26 @@
+server {
+        root /var/www/html/symfonystarter/symfonydiapp;
+        index index.php;
+
+        server_name localsymfonydiapp;
+
+        location / {
+                try_files $uri $uri/ /index.html;
+                autoindex on;
+        }
+
+        location /doc/ {
+                alias /usr/share/doc/;
+                autoindex on;
+                allow 127.0.0.1;
+                deny all;
+        }
+
+        location ~ \.php$ {
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/var/run/php5-fpm.sock;
+                fastcgi_index index.php;
+                include fastcgi_params;
+        }
+}
+

@@ -1,0 +1,12 @@
+{
+    "require": {
+        "symfony/dependency-injection": "dev-master",
+        "symfony/yaml": "dev-master",
+        "symfony/config": "dev-master"
+    },
+    "autoload":{
+        "psr-0":{
+            "":"lib/"
+        }
+    }
+}
